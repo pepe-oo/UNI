@@ -1,0 +1,11 @@
+procedure vertice_aislado (lista_grados)
+
+nodos_aislados = 0
+
+for x in lista_grados
+    if x == 0 do
+        nodos_aislados += 1
+    endif
+endfor
+
+printf nodos_aislados
