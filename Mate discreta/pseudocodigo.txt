@@ -1,0 +1,157 @@
+boolean DFS(v,color)
+{
+    v.setColor(color);
+    v.setVisited();
+    for u vecino de v
+    {
+        if (u.getVisited() == true)
+        {
+            if (u.getColor() == color)
+            {
+                return true
+            }
+        }
+        else if (DFS(u, 3- color) == true)
+        {
+            return true
+        }
+        endif
+    }
+    endfor
+    return false
+}
+
+boolean HasOddCycle(G(V,E))
+{
+    for v in G.V()
+    {
+        if (v.getVisited() == false)
+            if (DFS(v,1) == true)
+                return true
+    }
+    return false
+}
+
+
+void WheelColoring(G(V,E))
+{
+    Vertex centro = null
+    int maxGrado = 0
+    for v in G.V()
+    {
+        if δ(v) > maxGrado
+        {
+            centro = v
+            v.setColor(1)
+            maxGrado = δ(v)
+        }
+    }
+    if δ(centro)%2 == 0
+    {
+        color = 2
+        for u vecino de centro
+            u.setColor(color)
+            color = 5 - color
+    }
+    else 
+    {
+        color = 2
+        vertex ultimo = null
+        for u vecino de centro
+            u.setColor(color)
+            color = 5 - color
+            ultimo = u
+        ultimo.setColor(4)
+    }
+}
+
+getQuadrilaterals(G)
+{
+    List result = []
+    Vextex vecino = Null;
+    for a in G.V()
+    {
+        for b in G.V()
+        {
+            if a.getId() < b.getId()
+            {
+                for u vecino de b
+                {
+                    if(sonvecinos(u,a) && vecino == Null)
+                    {
+                        vecino = u;
+                    }
+                    else if(sonvecinos(u,a) && vecino != Null)
+                    {
+                        if (a.getId() < vecino.getId() && a.getId() < u.getId())
+                            result.add((a, vecino, b, u))
+                        vecino = Null;
+                    }
+                }
+            }
+        }
+    }
+}
+
+boolean DFS(v,padre)
+{
+    
+    for u vecino de v 
+    {
+        if u.getVisited() == false 
+            u.setVisited()
+            if DFS(u,v) == true
+                return true
+        else if u.getVisited() && u != padre
+            return true
+    }
+    return false
+}
+
+boolean isCyclic(G(V,E))
+{
+    Vertex padre = Null
+    for v in G.V()
+        v.setVisited()
+        if (DFS(v,padre) == true)
+
+            return true
+    return false
+}
+
+void DFS(v,profundidad)
+{
+    if (profundidad % 2 == 0)
+        v.setColor(1)
+    else 
+        v.setColor(2)
+    v.setVisited()
+    for u vecino de v;
+        if u.getVisited() == false
+            dfs(u,profundidad + 1)
+    
+}
+
+void ColorTree(G(V,E), r)
+{
+    int profundidad = 0;
+    r.setVisited()
+    DFS(r,0);
+}
+
+int DFS(v,contador,maxaltura)
+{
+    v.setVisited()
+    for u vecino de v 
+        if u.getVisited() == false 
+            DFS(u,contador+1,maxaltura+1)
+        
+    return contador
+}
+
+int heightTree(G(V,E), r)
+{
+    int contador = 0;
+    int maxaltura = 0;
+    return dfs(r,contador,maxaltura)
+}
