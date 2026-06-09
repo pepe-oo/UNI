@@ -21,7 +21,8 @@ void recursiva(int n,int arr[n],int inicio, int fin)
         }
     }
     swap(n,arr,i,fin);
-    for (int i = 0; i < n; i++) printf(" %d",arr[i]);
+    printf("%d", arr[0]);
+    for (int k = 1; k < n; k++) printf(" %d",arr[i]);
     printf("\n");
     recursiva(n, arr, inicio, i - 1); 
     recursiva(n, arr, i + 1, fin);    
