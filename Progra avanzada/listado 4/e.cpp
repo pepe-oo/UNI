@@ -26,7 +26,7 @@ int backtracking (int& x, int& y, std::vector<std::string> mapa, int posx, int p
     if (posx >= x || posy >= y || posx < 0 || posy < 0) {return 0;}
     if (mapa[posx][posy] == 'x' || mapa[posx][posy] == 'a') {return 0;}
 
-    return cont_local;
+    return cont;
 }
 
 int main()
